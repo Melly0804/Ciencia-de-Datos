@@ -6,11 +6,15 @@
     <title>Componentes dinámicos</title>
     <link rel="stylesheet" href="style.css">
   </head>
+
   <body>
     <header>
       <p class="etiqueta">Música 1</p>
+
       <h1>Preferencias musicales en jóvenes universitarios</h1>
-      <p class="bajada">La siguiente página presenta los resultados de una investigación realizada a partir de una encuesta en Google Forms sobre gustos musicales. La encuesta fue respondida por 30 personas y permitió analizar qué canciones son más conocidas, cuáles son mejor valoradas y cómo cambian las preferencias según género, región y perfil musical. 
+
+      <p class="bajada">
+        La siguiente página presenta los resultados de una investigación realizada a partir de una encuesta en Google Forms sobre gustos musicales. La encuesta fue respondida por 30 personas y permitió analizar qué canciones son más conocidas, cuáles son mejor valoradas y cómo cambian las preferencias según género, región y perfil musical.
         Es importante mencionar que los datos se obtuvieron de la encuesta realizada en el siguiente formulario:
         https://forms.gle/9GvcgPWiZoVrwcei7
       </p>
@@ -21,67 +25,110 @@
         <label>
           Opciones
           <select id="filtro-categoria">
-            <option value="metodología">Metodología</option>
-            <option value="géneros cubiertos">Géneros cubiertos</option>
-            <option value="Muestra">Muestra</option>
-            <option value="resultados generales">Resultados Generales</option>
-            <option value="reconocimiento vs. valoración">Reconocimiento vs. valoración</option>
-            <option value="hallazgos principales">Hallazgos principales</option>
-            <option value="diferencias por género del encuestado">Diferencias por género del encuestado</option>
-            <option value="diferencias por región">Diferencias por región</option>
-            <option value="correlaciones entre canciones">Correlaciones entre canciones</option>
-            <option value="perfil rock vs. urbano">Perfil rock vs. urbano</option> 
-            <option value="conclusión">Conclusión</option> 
+            <option value="metodologia">Metodología</option>
+            <option value="generos">Géneros cubiertos</option>
+            <option value="muestra">Muestra</option>
+            <option value="resultados">Resultados Generales</option>
+            <option value="reconocimiento">Reconocimiento vs. valoración</option>
+            <option value="hallazgos">Hallazgos principales</option>
+            <option value="genero-encuestado">Diferencias por género del encuestado</option>
+            <option value="region">Diferencias por región</option>
+            <option value="correlaciones">Correlaciones entre canciones</option>
+            <option value="rock-urbano">Perfil rock vs. urbano</option>
+            <option value="conclusion">Conclusión</option>
           </select>
         </label>
       </section>
-      <section class="respuestas"></section>
+
+      <section class="respuestas">
         <div>
           <p class="etiqueta">Resultado</p>
-          <p id="resultado"></p>
-
-          <script>
-            const e = document.querySelector('#filtro-categoria');
-            const r = document.getElementById("resultado");
-
-            function verificar() {
-              const val = e.value;
-
-              if (val === "metodología") {
-                r.innerHTML = "<p>La investigación se basó en una encuesta de 30 canciones, donde cada participante calificó las canciones en una escala del 0 al 5. En esta escala, 0 significaba “no la conozco” y 5 representaba una canción favorita. Para evitar sesgos en el análisis, los valores 0 fueron convertidos en NaN, ya que una persona que no conoce una canción no necesariamente la considera mala. De esta forma, las canciones desconocidas no afectaron negativamente el promedio. También se renombraron las columnas como cancion_01 hasta cancion_30 para facilitar el análisis de los datos. Finalmente, se exportaron dos archivos: un catálogo de canciones y una base de respuestas limpia.</p>";
-              } else if (val === "géneros cubiertos") {
-                r.innerHTML = "<p>La encuesta incluyó canciones de distintos géneros musicales, entre ellos pop, soul, rock clásico y reggaetón. En total, se consideraron al menos seis géneros, de acuerdo con la descripción del proyecto.</p>";
-              } else if (val === "reconocimiento vs. valoración") {
-                r.innerHTML = "<p>Uno de los hallazgos más importantes fue que las canciones más conocidas no necesariamente fueron las mejor calificadas. Por ejemplo, APT, identificada como cancion_05, fue la canción más conocida, ya que 27 de 30 personas la reconocieron. Sin embargo, su promedio fue de solo 3.59. En cambio, Sweet Child O' Mine, identificada como cancion_07, fue conocida solo por 15 de 30 personas, pero quienes sí la conocían le dieron un promedio de 4.27. Por otro lado, Hard Work Pays Off, cancion_30, fue la menos conocida, con solo 6 de 30 personas que la reconocieron, y también fue una de las peor calificadas entre quienes sí la conocían. Esto sugiere que una alta exposición no siempre significa una alta preferencia.</p>";
-              } else if (val === "hallazgos principales") {
-                r.innerHTML = "<p>Pop y reggaetón aparecen como algunos de los géneros más escuchados. Esto puede relacionarse con la exposición que tienen estos géneros en redes sociales y plataformas digitales, especialmente dentro del rango de edad de 18 a 29 años. También se encontró que algunas canciones famosas no eran reconocidas por todos los participantes. Esto muestra cómo los algoritmos y los hábitos de consumo pueden influir en qué artistas o canciones llegan a cada persona. Además, se identificó un posible sesgo demográfico, ya que algunas personas marcaron un rango de edad diferente al esperado. Esto se menciona como un punto de mejora para futuros análisis.</p>";
-              } else if (val === "diferencias por género del encuestado") {
-                r.innerHTML = "<p>Los hombres tienden a valorar más el rock clásico y la música electrónica. Por otro lado, las mujeres dieron puntajes más altos a canciones de soul y regional. Un ejemplo de esto es Olivia Dean, que tuvo un promedio de 3.5 en mujeres y 2.4 en hombres. También la canción Ya Borracho fue mejor valorada por mujeres, con 4.2, frente a 3.56 en hombres. DtMF de Bad Bunny fue una de las pocas canciones donde los tres grupos mostraron una valoración muy parecida, cercana a 4.25.</p>";
-              } else if (val === "diferencias por región") {
-                r.innerHTML = "<p>El Noroeste, que incluye Baja California, Sonora y Sinaloa, dio calificaciones notablemente más altas en varias canciones. Por ejemplo, Sweet Child O' Mine, DtMF y COQUETA alcanzaron una calificación de 5.0 en esta región. Sin embargo, este resultado debe tomarse con cuidado, porque solo participaron 3 personas del Noroeste. Por eso, no se puede generalizar completamente.</p>";
-              } else if (val === "correlaciones entre canciones") {
-                r.innerHTML = "<p>El mapa de calor de correlaciones permitió identificar grupos de canciones que tienden a gustar al mismo tipo de oyente. Las correlaciones positivas aparecen agrupadas en rojo, mientras que las diferencias o divergencias aparecen en azul. Se encontraron correlaciones perfectas, con r = 1.0, entre cancion_03 y cancion_30, cancion_04 y cancion_28, cancion_04 y cancion_29, y cancion_04 y cancion_30. Esto indica que algunos participantes calificaron exactamente igual ese grupo de canciones, posiblemente por un perfil musical específico o por pocas observaciones en esas canciones. También se encontró una correlación negativa perfecta, con r = -1.0, entre cancion_06, Everybody Wants To Rule The World, y cancion_29, WRONG de Kid LAROI. Esto muestra una división clara entre quienes prefieren rock clásico y quienes se inclinan más hacia trap anglófono.</p>";
-              } else if (val === "perfil rock vs. urbano") {
-                r.innerHTML = "<p>Los fans del rock valoraron significativamente más My Demons de Starset, con una diferencia de +2.53. También mostraron menor afinidad hacia la electrónica dance. Por otro lado, los fans urbanos mostraron mayor preferencia por canciones como Albatraoz, Around the World y temas de EDM. Esto fue interesante porque no necesariamente se inclinaron hacia el rock alternativo, como se podría esperar.</p>";
-              } else if (val === "conclusión") {
-                r.innerHTML = "<p>Se puede concluir que la muestra es demasiado pequeña y homogénea para hablar de los jóvenes mexicanos en general. La encuesta fue respondida por 30 personas, principalmente estudiantes del Tec, casi todos dentro del rango de 18 a 29 años y usuarios de plataformas de streaming. Por eso, los resultados aplican principalmente a este perfil específico y no deben generalizarse a toda la población joven mexicana. El hallazgo más interesante no fue simplemente qué canción ganó el ranking, sino que conocer una canción y que realmente guste son cosas diferentes. APT fue conocida por casi todos, pero no fue la mejor valorada. En cambio, Sweet Child O' Mine fue conocida solo por la mitad de los participantes y aun así obtuvo el promedio más alto.</p>";
-              } else if (val === "Muestra") {
-                r.innerHTML = "<p>La muestra estuvo formada por 30 respondentes. En cuanto al género, participaron 12 hombres, 12 mujeres y 6 personas que prefirieron no decirlo. Respecto a la edad, 27 personas pertenecen al rango de 18 a 29 años, mientras que 3 marcaron la opción de más de 45 años. Esto podría representar un posible sesgo en los datos. Sobre la ocupación, 16 personas son estudiantes, 12 marcaron “todas las anteriores” y 2 trabajan. En cuanto a la región, 15 participantes son del Centro, principalmente CDMX y Estado de México; 11 son del Norte; 3 del Noroeste y 1 del Centro-Norte. También se observó que 29 de 30 personas utilizan plataformas de streaming, por lo que prácticamente nadie usa medios físicos o radio como principal forma de escuchar música. En preferencia de idioma, 13 personas prefieren música en español, 9 en inglés y 7 no se fijan en el idioma.</p>";
-              }else if (val === "resultados generales") {
-                r.innerHTML = "<p>El promedio global entre las 30 canciones fue de aproximadamente 3.54 sobre 5. Las canciones mejor valoradas fueron: Sweet Child O' Mine – Guns N' Roses: 4.27 DtMF / En Da Getto: 4.26 Everybody Wants To Rule The World – Tears for Fears: 4.21 COQUETA: 4.15 Highway to Hell – AC/DC: 4.14 Las canciones con menor valoración fueron: cancion_29: 2.14 cancion_26: 2.50</p>";
-              }
-            }
-
-            verificar();
-
-            e.addEventListener("change", verificar);
-          </script>
+          <div id="resultado"></div>
         </div>
       </section>
 
       <section id="tarjetas" class="tarjetas" aria-live="polite"></section>
     </main>
 
-    <script src="script.js"></script>
+    <script>
+      const e = document.querySelector("#filtro-categoria");
+      const r = document.getElementById("resultado");
+
+      function verificar() {
+        const val = e.value;
+
+        if (val === "metodologia") {
+          r.innerHTML = `
+            <p>
+              La investigación se basó en una encuesta de 30 canciones, donde cada participante calificó las canciones en una escala del 0 al 5. En esta escala, 0 significaba “no la conozco” y 5 representaba una canción favorita. Para evitar sesgos en el análisis, los valores 0 fueron convertidos en NaN, ya que una persona que no conoce una canción no necesariamente la considera mala. De esta forma, las canciones desconocidas no afectaron negativamente el promedio. También se renombraron las columnas como cancion_01 hasta cancion_30 para facilitar el análisis de los datos. Finalmente, se exportaron dos archivos: un catálogo de canciones y una base de respuestas limpia.
+            </p>
+          `;
+        } else if (val === "generos") {
+          r.innerHTML = `
+            <p>
+              La encuesta incluyó canciones de distintos géneros musicales, entre ellos pop, soul, rock clásico y reggaetón. En total, se consideraron al menos seis géneros, de acuerdo con la descripción del proyecto.
+            </p>
+          `;
+        } else if (val === "muestra") {
+          r.innerHTML = `
+            <p>
+              La muestra estuvo formada por 30 respondentes. En cuanto al género, participaron 12 hombres, 12 mujeres y 6 personas que prefirieron no decirlo. Respecto a la edad, 27 personas pertenecen al rango de 18 a 29 años, mientras que 3 marcaron la opción de más de 45 años. Esto podría representar un posible sesgo en los datos. Sobre la ocupación, 16 personas son estudiantes, 12 marcaron “todas las anteriores” y 2 trabajan. En cuanto a la región, 15 participantes son del Centro, principalmente CDMX y Estado de México; 11 son del Norte; 3 del Noroeste y 1 del Centro-Norte. También se observó que 29 de 30 personas utilizan plataformas de streaming, por lo que prácticamente nadie usa medios físicos o radio como principal forma de escuchar música. En preferencia de idioma, 13 personas prefieren música en español, 9 en inglés y 7 no se fijan en el idioma.
+            </p>
+          `;
+        } else if (val === "resultados") {
+          r.innerHTML = `
+            <p>
+              El promedio global entre las 30 canciones fue de aproximadamente 3.54 sobre 5. Las canciones mejor valoradas fueron: Sweet Child O' Mine – Guns N' Roses: 4.27, DtMF / En Da Getto: 4.26, Everybody Wants To Rule The World – Tears for Fears: 4.21, COQUETA: 4.15 y Highway to Hell – AC/DC: 4.14. Las canciones con menor valoración fueron cancion_29, con 2.14, y cancion_26, con 2.50.
+            </p>
+          `;
+        } else if (val === "reconocimiento") {
+          r.innerHTML = `
+            <p>
+              Uno de los hallazgos más importantes fue que las canciones más conocidas no necesariamente fueron las mejor calificadas. Por ejemplo, APT, identificada como cancion_05, fue la canción más conocida, ya que 27 de 30 personas la reconocieron. Sin embargo, su promedio fue de solo 3.59. En cambio, Sweet Child O' Mine, identificada como cancion_07, fue conocida solo por 15 de 30 personas, pero quienes sí la conocían le dieron un promedio de 4.27. Por otro lado, Hard Work Pays Off, cancion_30, fue la menos conocida, con solo 6 de 30 personas que la reconocieron, y también fue una de las peor calificadas entre quienes sí la conocían. Esto sugiere que una alta exposición no siempre significa una alta preferencia.
+            </p>
+          `;
+        } else if (val === "hallazgos") {
+          r.innerHTML = `
+            <p>
+              Pop y reggaetón aparecen como algunos de los géneros más escuchados. Esto puede relacionarse con la exposición que tienen estos géneros en redes sociales y plataformas digitales, especialmente dentro del rango de edad de 18 a 29 años. También se encontró que algunas canciones famosas no eran reconocidas por todos los participantes. Esto muestra cómo los algoritmos y los hábitos de consumo pueden influir en qué artistas o canciones llegan a cada persona. Además, se identificó un posible sesgo demográfico, ya que algunas personas marcaron un rango de edad diferente al esperado. Esto se menciona como un punto de mejora para futuros análisis.
+            </p>
+          `;
+        } else if (val === "genero-encuestado") {
+          r.innerHTML = `
+            <p>
+              Los hombres tienden a valorar más el rock clásico y la música electrónica. Por otro lado, las mujeres dieron puntajes más altos a canciones de soul y regional. Un ejemplo de esto es Olivia Dean, que tuvo un promedio de 3.5 en mujeres y 2.4 en hombres. También la canción Ya Borracho fue mejor valorada por mujeres, con 4.2, frente a 3.56 en hombres. DtMF de Bad Bunny fue una de las pocas canciones donde los tres grupos mostraron una valoración muy parecida, cercana a 4.25.
+            </p>
+          `;
+        } else if (val === "region") {
+          r.innerHTML = `
+            <p>
+              El Noroeste, que incluye Baja California, Sonora y Sinaloa, dio calificaciones notablemente más altas en varias canciones. Por ejemplo, Sweet Child O' Mine, DtMF y COQUETA alcanzaron una calificación de 5.0 en esta región. Sin embargo, este resultado debe tomarse con cuidado, porque solo participaron 3 personas del Noroeste. Por eso, no se puede generalizar completamente.
+            </p>
+          `;
+        } else if (val === "correlaciones") {
+          r.innerHTML = `
+            <p>
+              El mapa de calor de correlaciones permitió identificar grupos de canciones que tienden a gustar al mismo tipo de oyente. Las correlaciones positivas aparecen agrupadas en rojo, mientras que las diferencias o divergencias aparecen en azul. Se encontraron correlaciones perfectas, con r = 1.0, entre cancion_03 y cancion_30, cancion_04 y cancion_28, cancion_04 y cancion_29, y cancion_04 y cancion_30. Esto indica que algunos participantes calificaron exactamente igual ese grupo de canciones, posiblemente por un perfil musical específico o por pocas observaciones en esas canciones. También se encontró una correlación negativa perfecta, con r = -1.0, entre cancion_06, Everybody Wants To Rule The World, y cancion_29, WRONG de Kid LAROI. Esto muestra una división clara entre quienes prefieren rock clásico y quienes se inclinan más hacia trap anglófono.
+            </p>
+          `;
+        } else if (val === "rock-urbano") {
+          r.innerHTML = `
+            <p>
+              Los fans del rock valoraron significativamente más My Demons de Starset, con una diferencia de +2.53. También mostraron menor afinidad hacia la electrónica dance. Por otro lado, los fans urbanos mostraron mayor preferencia por canciones como Albatraoz, Around the World y temas de EDM. Esto fue interesante porque no necesariamente se inclinaron hacia el rock alternativo, como se podría esperar.
+            </p>
+          `;
+        } else if (val === "conclusion") {
+          r.innerHTML = `
+            <p>
+              Se puede concluir que la muestra es demasiado pequeña y homogénea para hablar de los jóvenes mexicanos en general. La encuesta fue respondida por 30 personas, principalmente estudiantes del Tec, casi todos dentro del rango de 18 a 29 años y usuarios de plataformas de streaming. Por eso, los resultados aplican principalmente a este perfil específico y no deben generalizarse a toda la población joven mexicana. El hallazgo más interesante no fue simplemente qué canción ganó el ranking, sino que conocer una canción y que realmente guste son cosas diferentes. APT fue conocida por casi todos, pero no fue la mejor valorada. En cambio, Sweet Child O' Mine fue conocida solo por la mitad de los participantes y aun así obtuvo el promedio más alto.
+            </p>
+          `;
+        }
+      }
+
+      verificar();
+
+      e.addEventListener("change", verificar);
+    </script>
   </body>
 </html>
