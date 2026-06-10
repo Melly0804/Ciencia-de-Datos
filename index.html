@@ -3,32 +3,73 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Componentes dinámicos</title>
+    <title>Preferencias musicales</title>
     <link rel="stylesheet" href="style.css">
   </head>
 
   <body>
-    <header>
-      <p class="etiqueta">Música 1</p>
+    <header class="hero">
+      <div class="hero-overlay"></div>
 
-      <h1>Preferencias musicales en jóvenes universitarios</h1>
+      <nav class="nav">
+        <p class="logo">Música 1</p>
+        <p class="nav-text">30 canciones comentadas · 30 respuestas para explorar</p>
+      </nav>
 
-      <p class="bajada">
-        La siguiente página presenta los resultados de una investigación realizada a partir de una encuesta en Google Forms sobre gustos musicales. La encuesta fue respondida por 30 personas y permitió analizar qué canciones son más conocidas, cuáles son mejor valoradas y cómo cambian las preferencias según género, región y perfil musical.
-        Es importante mencionar que los datos se obtuvieron de la encuesta realizada en el siguiente formulario:
-        https://forms.gle/9GvcgPWiZoVrwcei7
-      </p>
+      <section class="hero-content">
+        <p class="etiqueta">Lo que dice la gente</p>
+
+        <h1>¿Qué escuchan <span>los jóvenes</span> hoy?</h1>
+
+        <p class="bajada">
+          No todo lo más conocido es lo más querido. Esta página presenta los resultados
+          de una encuesta sobre preferencias musicales en jóvenes universitarios. Explora
+          cuáles canciones fueron más reconocidas, cuáles gustaron más y cómo cambian
+          las opiniones según género, región y perfil musical.
+        </p>
+
+        <div class="hero-datos">
+          <div>
+            <strong>30</strong>
+            <span>personas</span>
+          </div>
+
+          <div>
+            <strong>30</strong>
+            <span>canciones</span>
+          </div>
+
+          <div>
+            <strong>5</strong>
+            <span>puntaje máximo</span>
+          </div>
+        </div>
+      </section>
     </header>
 
     <main>
-      <section class="controles" aria-label="Filtros">
-        <label>
-          Opciones
+      <section class="intro">
+        <div>
+          <p class="etiqueta">Explora los resultados</p>
+          <h2>Una encuesta, distintos gustos, muchas conclusiones</h2>
+        </div>
+
+        <p>
+          A través de un formulario en Google Forms, se recopilaron respuestas sobre
+          canciones de distintos géneros. El análisis permite entender cómo se relacionan
+          la popularidad, la valoración y las diferencias entre distintos perfiles de oyentes.
+        </p>
+      </section>
+
+      <section class="panel">
+        <div class="controles" aria-label="Filtros">
+          <label for="filtro-categoria">Selecciona una categoría</label>
+
           <select id="filtro-categoria">
             <option value="metodologia">Metodología</option>
             <option value="generos">Géneros cubiertos</option>
             <option value="muestra">Muestra</option>
-            <option value="resultados">Resultados Generales</option>
+            <option value="resultados">Resultados generales</option>
             <option value="reconocimiento">Reconocimiento vs. valoración</option>
             <option value="hallazgos">Hallazgos principales</option>
             <option value="genero-encuestado">Diferencias por género del encuestado</option>
@@ -37,111 +78,178 @@
             <option value="rock-urbano">Perfil rock vs. urbano</option>
             <option value="conclusion">Conclusión</option>
           </select>
-        </label>
+        </div>
+
+        <section class="respuestas">
+          <p class="etiqueta">Resultado</p>
+          <h2 id="resultado-titulo"></h2>
+          <div id="resultado"></div>
+        </section>
       </section>
 
-      <section class="respuestas">
-        <div>
-          <p class="etiqueta">Resultado</p>
-          <div id="resultado"></div>
+      <section class="visual-section">
+        <div class="visual-text">
+          <p class="etiqueta">Estética musical</p>
+          <h2>Entre playlists, portadas y recuerdos</h2>
+
+          <p>
+            La música también se vive visualmente. Por eso esta página combina una
+            estética inspirada en collages de canciones, portadas de álbumes y recuerdos
+            personales, para representar cómo cada canción puede conectar con una emoción distinta.
+          </p>
+        </div>
+
+        <div class="visual-grid">
+          <img src="img1.jpeg" alt="Collage musical">
+          <img src="img2.jpeg" alt="Composición visual inspirada en música">
         </div>
       </section>
 
-      <section id="tarjetas" class="tarjetas" aria-live="polite"></section>
+      <section class="tarjetas">
+        <article>
+          <span>01</span>
+          <h3>Más conocida</h3>
+          <p>Una canción puede ser muy reconocida sin ser la favorita de todos.</p>
+        </article>
+
+        <article>
+          <span>02</span>
+          <h3>Mejor valorada</h3>
+          <p>Las canciones clásicas sorprendieron con algunos de los puntajes más altos.</p>
+        </article>
+
+        <article>
+          <span>03</span>
+          <h3>Hallazgo clave</h3>
+          <p>La exposición no siempre significa preferencia musical.</p>
+        </article>
+      </section>
+
+      <section class="graficas">
+        <div class="graficas-header">
+          <p class="etiqueta">Análisis visual</p>
+          <h2>Gráficas del estudio</h2>
+          <p>
+            A continuación se muestran las gráficas generadas a partir de la encuesta.
+          </p>
+        </div>
+
+        <div class="galeria-graficas">
+          <img src="i1.jpeg" alt="Gráfica 1">
+          <img src="i2.jpeg" alt="Gráfica 2">
+          <img src="i3.jpeg" alt="Gráfica 3">
+          <img src="i4.jpeg" alt="Gráfica 4">
+          <img src="i5.jpeg" alt="Gráfica 5">
+          <img src="i6.jpeg" alt="Gráfica 6">
+          <img src="i7.jpeg" alt="Gráfica 7">
+        </div>
+      </section>
     </main>
 
     <script>
       const e = document.querySelector("#filtro-categoria");
-      const r = document.getElementById("resultado");
+      const t = document.querySelector("#resultado-titulo");
+      const r = document.querySelector("#resultado");
 
-      function verificar() {
-        const val = e.value;
-
-        if (val === "metodologia") {
-          r.innerHTML = `
+      const c = {
+        metodologia: {
+          titulo: "Metodología",
+          texto: `
             <p>
-              La investigación se basó en una encuesta de 30 canciones, donde cada participante calificó las canciones en una escala del 0 al 5. En esta escala, 0 significaba “no la conozco” y 5 representaba una canción favorita. Para evitar sesgos en el análisis, los valores 0 fueron convertidos en NaN, ya que una persona que no conoce una canción no necesariamente la considera mala. De esta forma, las canciones desconocidas no afectaron negativamente el promedio. También se renombraron las columnas como cancion_01 hasta cancion_30 para facilitar el análisis de los datos. Finalmente, se exportaron dos archivos: un catálogo de canciones y una base de respuestas limpia.
+              La investigación se basó en una encuesta de 30 canciones, donde cada participante calificó las canciones en una escala del 0 al 5. En esta escala, 0 significaba “no la conozco” y 5 representaba una canción favorita. Para evitar sesgos en el análisis, los valores 0 fueron convertidos en NaN, ya que una persona que no conoce una canción no necesariamente la considera mala. De esta forma, las canciones desconocidas no afectaron negativamente el promedio.
             </p>
-          `;
-        } else if (val === "generos") {
-          r.innerHTML = `
+          `
+        },
+        generos: {
+          titulo: "Géneros cubiertos",
+          texto: `
             <p>
-              La encuesta incluyó canciones de distintos géneros musicales, entre ellos pop, soul, rock clásico y reggaetón. En total, se consideraron al menos seis géneros, de acuerdo con la descripción del proyecto.
+              La encuesta incluyó canciones de distintos géneros musicales, entre ellos pop, soul, rock clásico, reggaetón y música electrónica.
             </p>
-          `;
-        } else if (val === "muestra") {
-          r.innerHTML = `
+          `
+        },
+        muestra: {
+          titulo: "Muestra",
+          texto: `
             <p>
-              La muestra estuvo formada por 30 respondentes. En cuanto al género, participaron 12 hombres, 12 mujeres y 6 personas que prefirieron no decirlo. Respecto a la edad, 27 personas pertenecen al rango de 18 a 29 años, mientras que 3 marcaron la opción de más de 45 años. Esto podría representar un posible sesgo en los datos. Sobre la ocupación, 16 personas son estudiantes, 12 marcaron “todas las anteriores” y 2 trabajan. En cuanto a la región, 15 participantes son del Centro, principalmente CDMX y Estado de México; 11 son del Norte; 3 del Noroeste y 1 del Centro-Norte. También se observó que 29 de 30 personas utilizan plataformas de streaming, por lo que prácticamente nadie usa medios físicos o radio como principal forma de escuchar música. En preferencia de idioma, 13 personas prefieren música en español, 9 en inglés y 7 no se fijan en el idioma.
+              La muestra estuvo formada por 30 respondentes. La mayoría pertenece al rango de 18 a 29 años y utiliza plataformas de streaming como principal medio para escuchar música.
             </p>
-          `;
-        } else if (val === "resultados") {
-          r.innerHTML = `
+          `
+        },
+        resultados: {
+          titulo: "Resultados generales",
+          texto: `
             <p>
-              El promedio global entre las 30 canciones fue de aproximadamente 3.54 sobre 5. Las canciones mejor valoradas fueron: Sweet Child O' Mine – Guns N' Roses: 4.27, DtMF / En Da Getto: 4.26, Everybody Wants To Rule The World – Tears for Fears: 4.21, COQUETA: 4.15 y Highway to Hell – AC/DC: 4.14. Las canciones con menor valoración fueron cancion_29, con 2.14, y cancion_26, con 2.50.
+              El promedio global entre las 30 canciones fue de aproximadamente 3.54 sobre 5. Entre las mejor valoradas destacaron Sweet Child O' Mine, DtMF / En Da Getto, Everybody Wants To Rule The World, COQUETA y Highway to Hell.
             </p>
-          `;
-        } else if (val === "reconocimiento") {
-          r.innerHTML = `
+          `
+        },
+        reconocimiento: {
+          titulo: "Reconocimiento vs. valoración",
+          texto: `
             <p>
-              Uno de los hallazgos más importantes fue que las canciones más conocidas no necesariamente fueron las mejor calificadas. Por ejemplo, APT, identificada como cancion_05, fue la canción más conocida, ya que 27 de 30 personas la reconocieron. Sin embargo, su promedio fue de solo 3.59. En cambio, Sweet Child O' Mine, identificada como cancion_07, fue conocida solo por 15 de 30 personas, pero quienes sí la conocían le dieron un promedio de 4.27. Por otro lado, Hard Work Pays Off, cancion_30, fue la menos conocida, con solo 6 de 30 personas que la reconocieron, y también fue una de las peor calificadas entre quienes sí la conocían. Esto sugiere que una alta exposición no siempre significa una alta preferencia.
+              Uno de los hallazgos más importantes fue que las canciones más conocidas no necesariamente fueron las mejor calificadas. Esto demuestra que popularidad y preferencia no siempre coinciden.
             </p>
-          `;
-        } else if (val === "hallazgos") {
-          r.innerHTML = `
+          `
+        },
+        hallazgos: {
+          titulo: "Hallazgos principales",
+          texto: `
             <p>
-              Pop y reggaetón aparecen como algunos de los géneros más escuchados. Esto puede relacionarse con la exposición que tienen estos géneros en redes sociales y plataformas digitales, especialmente dentro del rango de edad de 18 a 29 años. También se encontró que algunas canciones famosas no eran reconocidas por todos los participantes. Esto muestra cómo los algoritmos y los hábitos de consumo pueden influir en qué artistas o canciones llegan a cada persona. Además, se identificó un posible sesgo demográfico, ya que algunas personas marcaron un rango de edad diferente al esperado. Esto se menciona como un punto de mejora para futuros análisis.
+              Pop y reggaetón aparecen como algunos de los géneros más escuchados, aunque el análisis también mostró una valoración alta hacia canciones clásicas y propuestas menos populares.
             </p>
-          `;
-        } else if (val === "genero-encuestado") {
-          r.innerHTML = `
+          `
+        },
+        "genero-encuestado": {
+          titulo: "Diferencias por género del encuestado",
+          texto: `
             <p>
-              Los hombres tienden a valorar más el rock clásico y la música electrónica. Por otro lado, las mujeres dieron puntajes más altos a canciones de soul y regional. Un ejemplo de esto es Olivia Dean, que tuvo un promedio de 3.5 en mujeres y 2.4 en hombres. También la canción Ya Borracho fue mejor valorada por mujeres, con 4.2, frente a 3.56 en hombres. DtMF de Bad Bunny fue una de las pocas canciones donde los tres grupos mostraron una valoración muy parecida, cercana a 4.25.
+              Se observaron diferencias en la valoración de algunos géneros: algunos grupos tendieron a valorar más el rock clásico, mientras que otros mostraron mayor afinidad por soul, regional o música urbana.
             </p>
-          `;
-        } else if (val === "region") {
-          r.innerHTML = `
+          `
+        },
+        region: {
+          titulo: "Diferencias por región",
+          texto: `
             <p>
-              El Noroeste, que incluye Baja California, Sonora y Sinaloa, dio calificaciones notablemente más altas en varias canciones. Por ejemplo, Sweet Child O' Mine, DtMF y COQUETA alcanzaron una calificación de 5.0 en esta región. Sin embargo, este resultado debe tomarse con cuidado, porque solo participaron 3 personas del Noroeste. Por eso, no se puede generalizar completamente.
+              Algunas regiones presentaron puntajes más altos en canciones específicas, aunque esto debe interpretarse con precaución por el tamaño reducido de ciertos grupos.
             </p>
-          `;
-        } else if (val === "correlaciones") {
-          r.innerHTML = `
+          `
+        },
+        correlaciones: {
+          titulo: "Correlaciones entre canciones",
+          texto: `
             <p>
-              El mapa de calor de correlaciones permitió identificar grupos de canciones que tienden a gustar al mismo tipo de oyente. Las correlaciones positivas aparecen agrupadas en rojo, mientras que las diferencias o divergencias aparecen en azul. Se encontraron correlaciones perfectas, con r = 1.0, entre cancion_03 y cancion_30, cancion_04 y cancion_28, cancion_04 y cancion_29, y cancion_04 y cancion_30. Esto indica que algunos participantes calificaron exactamente igual ese grupo de canciones, posiblemente por un perfil musical específico o por pocas observaciones en esas canciones. También se encontró una correlación negativa perfecta, con r = -1.0, entre cancion_06, Everybody Wants To Rule The World, y cancion_29, WRONG de Kid LAROI. Esto muestra una división clara entre quienes prefieren rock clásico y quienes se inclinan más hacia trap anglófono.
+              El análisis de correlación permitió detectar agrupaciones de canciones que tienden a gustar al mismo tipo de oyente, mostrando afinidades y contrastes entre estilos musicales.
             </p>
-          `;
-        } else if (val === "rock-urbano") {
-          r.innerHTML = `
+          `
+        },
+        "rock-urbano": {
+          titulo: "Perfil rock vs. urbano",
+          texto: `
             <p>
-              Los fans del rock valoraron significativamente más My Demons de Starset, con una diferencia de +2.53. También mostraron menor afinidad hacia la electrónica dance. Por otro lado, los fans urbanos mostraron mayor preferencia por canciones como Albatraoz, Around the World y temas de EDM. Esto fue interesante porque no necesariamente se inclinaron hacia el rock alternativo, como se podría esperar.
+              Los oyentes con perfil rock valoraron más ciertas canciones alternativas o clásicas, mientras que los oyentes urbanos mostraron mayor afinidad por canciones bailables, reggaetón y EDM.
             </p>
-          `;
-        } else if (val === "conclusion") {
-          r.innerHTML = `
+          `
+        },
+        conclusion: {
+          titulo: "Conclusión",
+          texto: `
             <p>
-              Se puede concluir que la muestra es demasiado pequeña y homogénea para hablar de los jóvenes mexicanos en general. La encuesta fue respondida por 30 personas, principalmente estudiantes del Tec, casi todos dentro del rango de 18 a 29 años y usuarios de plataformas de streaming. Por eso, los resultados aplican principalmente a este perfil específico y no deben generalizarse a toda la población joven mexicana. El hallazgo más interesante no fue simplemente qué canción ganó el ranking, sino que conocer una canción y que realmente guste son cosas diferentes. APT fue conocida por casi todos, pero no fue la mejor valorada. En cambio, Sweet Child O' Mine fue conocida solo por la mitad de los participantes y aun así obtuvo el promedio más alto.
+              La encuesta muestra que conocer una canción y realmente disfrutarla son cosas distintas. La exposición ayuda al reconocimiento, pero la valoración depende mucho más de la conexión individual con cada estilo.
             </p>
-          `;
+          `
         }
+      };
+
+      function ver() {
+        const v = e.value;
+        t.textContent = c[v].titulo;
+        r.innerHTML = c[v].texto;
       }
 
-      verificar();
-
-      e.addEventListener("change", verificar);
+      ver();
+      e.addEventListener("change", ver);
     </script>
-    <section class="graficas">
-        <div>
-          <h2>Graficas</h2>
-          <img src="i1.jpeg" width="1000" height="500"></img>
-          <img src="i2.jpeg" width="1000" height="500"></img>
-          <img src="i3.jpeg" width="1000" height="500"></img>
-          <img src="i4.jpeg" width="1000" height="500"></img>
-          <img src="i5.jpeg" width="1000" height="500"></img>
-          <img src="i6.jpeg" width="1000" height="500"></img>
-          <img src="i7.jpeg" width="1000" height="500"></img>
-
-        </div>
-      </section>
   </body>
 </html>
