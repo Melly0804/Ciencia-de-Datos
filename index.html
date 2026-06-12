@@ -76,6 +76,8 @@
             <option value="region">Diferencias por región</option>
             <option value="correlaciones">Correlaciones entre canciones</option>
             <option value="rock-urbano">Perfil rock vs. urbano</option>
+            <option value="recomendaciones-usuario">Recomendaciones por usuario</option>
+            <option value="genero-musical">Género musical</option>
             <option value="conclusion">Conclusión</option>
           </select>
         </div>
@@ -146,110 +148,6 @@
       </section>
     </main>
 
-    <script>
-      const e = document.querySelector("#filtro-categoria");
-      const t = document.querySelector("#resultado-titulo");
-      const r = document.querySelector("#resultado");
-
-      const c = {
-        metodologia: {
-          titulo: "Metodología",
-          texto: `
-            <p>
-              La investigación se basó en una encuesta de 30 canciones, donde cada participante calificó las canciones en una escala del 0 al 5. En esta escala, 0 significaba “no la conozco” y 5 representaba una canción favorita. Para evitar sesgos en el análisis, los valores 0 fueron convertidos en NaN, ya que una persona que no conoce una canción no necesariamente la considera mala. De esta forma, las canciones desconocidas no afectaron negativamente el promedio.
-            </p>
-          `
-        },
-        generos: {
-          titulo: "Géneros cubiertos",
-          texto: `
-            <p>
-              La encuesta incluyó canciones de distintos géneros musicales, entre ellos pop, soul, rock clásico, reggaetón y música electrónica.
-            </p>
-          `
-        },
-        muestra: {
-          titulo: "Muestra",
-          texto: `
-            <p>
-              La muestra estuvo formada por 30 respondentes. La mayoría pertenece al rango de 18 a 29 años y utiliza plataformas de streaming como principal medio para escuchar música.
-            </p>
-          `
-        },
-        resultados: {
-          titulo: "Resultados generales",
-          texto: `
-            <p>
-              El promedio global entre las 30 canciones fue de aproximadamente 3.54 sobre 5. Entre las mejor valoradas destacaron Sweet Child O' Mine, DtMF / En Da Getto, Everybody Wants To Rule The World, COQUETA y Highway to Hell.
-            </p>
-          `
-        },
-        reconocimiento: {
-          titulo: "Reconocimiento vs. valoración",
-          texto: `
-            <p>
-              Uno de los hallazgos más importantes fue que las canciones más conocidas no necesariamente fueron las mejor calificadas. Esto demuestra que popularidad y preferencia no siempre coinciden.
-            </p>
-          `
-        },
-        hallazgos: {
-          titulo: "Hallazgos principales",
-          texto: `
-            <p>
-              Pop y reggaetón aparecen como algunos de los géneros más escuchados, aunque el análisis también mostró una valoración alta hacia canciones clásicas y propuestas menos populares.
-            </p>
-          `
-        },
-        "genero-encuestado": {
-          titulo: "Diferencias por género del encuestado",
-          texto: `
-            <p>
-              Se observaron diferencias en la valoración de algunos géneros: algunos grupos tendieron a valorar más el rock clásico, mientras que otros mostraron mayor afinidad por soul, regional o música urbana.
-            </p>
-          `
-        },
-        region: {
-          titulo: "Diferencias por región",
-          texto: `
-            <p>
-              Algunas regiones presentaron puntajes más altos en canciones específicas, aunque esto debe interpretarse con precaución por el tamaño reducido de ciertos grupos.
-            </p>
-          `
-        },
-        correlaciones: {
-          titulo: "Correlaciones entre canciones",
-          texto: `
-            <p>
-              El análisis de correlación permitió detectar agrupaciones de canciones que tienden a gustar al mismo tipo de oyente, mostrando afinidades y contrastes entre estilos musicales.
-            </p>
-          `
-        },
-        "rock-urbano": {
-          titulo: "Perfil rock vs. urbano",
-          texto: `
-            <p>
-              Los oyentes con perfil rock valoraron más ciertas canciones alternativas o clásicas, mientras que los oyentes urbanos mostraron mayor afinidad por canciones bailables, reggaetón y EDM.
-            </p>
-          `
-        },
-        conclusion: {
-          titulo: "Conclusión",
-          texto: `
-            <p>
-              La encuesta muestra que conocer una canción y realmente disfrutarla son cosas distintas. La exposición ayuda al reconocimiento, pero la valoración depende mucho más de la conexión individual con cada estilo.
-            </p>
-          `
-        }
-      };
-
-      function ver() {
-        const v = e.value;
-        t.textContent = c[v].titulo;
-        r.innerHTML = c[v].texto;
-      }
-
-      ver();
-      e.addEventListener("change", ver);
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
